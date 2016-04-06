@@ -42,7 +42,7 @@ module.exports = function sktClientFactory(http) {
     var config = this.config;
     return this.http({
       method: 'GET',
-      url: getUrl(config[endpoint], query),
+      url: config[endpoint],
       params: config.params[endpoint](query, config)
     }).then(function(res) {
       var errorParser = config.parsers[endpoint + 'Error'];
