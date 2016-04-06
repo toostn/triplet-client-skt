@@ -32,7 +32,7 @@ module.exports = function sktClientFactory(http) {
     return (response &&
             typeof response.headers === 'function' &&
             isXML(response.headers('content-type'))) ?
-      x2Js.xml_str2json(response.data) :
+      x2Js.xml2js(response.data) :
       response;
   }
 
