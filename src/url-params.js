@@ -1,6 +1,6 @@
-var LocalTime = require('../../local-time.js');
-var rt90Util = require('../../util/rt90-util.js');
-var dtString = require('../common/utils.js').dtString;
+var LocalTime = require('triplet-core/local-time.js');
+var rt90Util = require('triplet-core/util/rt90-util.js');
+var dtString = require('triplet-core/util/client-util.js').dtString;
 var PAST_TRIP_SEARCH_TIME = 300000;
 
 exports.trips = function trips(query) {
