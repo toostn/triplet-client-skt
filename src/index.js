@@ -55,4 +55,6 @@ module.exports = function sktClientFactory(http) {
       return query;
     });
   };
+
+  return SKTClient;
 };
