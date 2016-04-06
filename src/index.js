@@ -29,12 +29,14 @@ module.exports = function sktClientFactory(http) {
   var x2Js = new X2JS();
 
   function parseXML(response) {
-    return !isXML(response) ? response : x2Js.xml_str2json(response.data);
+    return (response &&
+            typeof response.headers === 'function' &&
+            isXML(response.headers('content-type'))) ?
+      x2Js.xml_str2json(response.data) :
+      response;
   }
 
-  function isXML(response) {
-    // TODO: This probably won't work with all http client response objects
-    var contentType = response.headers('content-type');
+  function isXML(contentType) {
     return contentType ? contentType.search(/\Wxml/i) > -1 : false;
   }
 
@@ -46,7 +48,7 @@ module.exports = function sktClientFactory(http) {
       params: config.params[endpoint](query, config)
     }).then(function(res) {
       var errorParser = config.parsers[endpoint + 'Error'];
-      var json = parseXML(res.data);
+      var json = parseXML(res);
       query.error = errorParser ? errorParser(json) : null;
       query.results = query.error ? null : config.parsers[endpoint](json, query);
       return query;
