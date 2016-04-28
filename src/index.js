@@ -60,3 +60,7 @@ module.exports = function sktClientFactory(http) {
 
   return SKTClient;
 };
+
+function serverErrorText(res) {
+  return (res.status === -1) ? 'No internet connection' : res.statusText;
+}
