@@ -1,6 +1,6 @@
 {
   "name": "triplet-client-skt",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Skånetrafiken client for Triplet travel planner",
   "main": "src/index.js",
   "scripts": {
