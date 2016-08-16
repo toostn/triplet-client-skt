@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/toostn/triplet-client-skt#readme",
   "dependencies": {
-    "triplet-core": "^0.2.0",
+    "triplet-core": "^0.2.1",
     "x2js": "^2.0.0"
   }
 }
