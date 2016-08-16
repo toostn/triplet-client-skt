@@ -3,7 +3,7 @@ var rt90Util = require('triplet-core/util/rt90-util.js')
 var dtString = require('triplet-core/util/client-util.js').dtString
 var PAST_TRIP_SEARCH_TIME = 300000
 
-exports.trips = function trips (query) {
+exports.trips = function (query) {
   var params = {
     NoOf: query.maxResults || 6,
     cmdAction: 'search'
@@ -38,7 +38,7 @@ function stationParam (station) {
   return [station.name, station.id, type].join('|')
 }
 
-exports.nearbyStations = function nearbyStations (query) {
+exports.nearbyStations = function (query) {
   var params = {
     r: query.radius || 3000
   }
@@ -52,7 +52,7 @@ exports.nearbyStations = function nearbyStations (query) {
   return params
 }
 
-exports.stations = function stations (query) {
+exports.stations = function (query) {
   return {
     inpPointFr: query.queryString,
     inpPointTo: 'abc'

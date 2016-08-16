@@ -9,7 +9,7 @@ function sktUrl (endpoint) {
   return BASE_URL + endpoint
 }
 
-module.exports = function sktClientFactory (http) {
+module.exports = function (http) {
   var SKTClient = new Client(http, {
     shortName: 'skt',
     fullName: 'Skånetrafiken',
@@ -40,7 +40,7 @@ module.exports = function sktClientFactory (http) {
     return contentType ? contentType.search(/\Wxml/i) > -1 : false
   }
 
-  SKTClient._request = function _request (endpoint, query) {
+  SKTClient._request = function (endpoint, query) {
     var config = this.config
     return this.http({
       method: 'GET',

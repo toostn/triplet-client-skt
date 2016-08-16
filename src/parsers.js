@@ -36,7 +36,7 @@ exports.stationsError = function (json) {
   return error(stationsResult(json))
 }
 
-exports.stations = function stations (json) {
+exports.stations = function (json) {
   var res = stationsResult(json)
   return (!res.StartPoints)
     ? []
@@ -50,11 +50,11 @@ function nearbyStationsResult (json) {
     : null
 }
 
-exports.nearbyStationsError = function nearbyStationsError (json) {
+exports.nearbyStationsError = function (json) {
   return error(nearbyStationsResult(json))
 }
 
-exports.nearbyStations = function nearbyStations (json) {
+exports.nearbyStations = function (json) {
   var res = nearbyStationsResult(json)
   return (!res.NearestStopAreas)
     ? []
@@ -68,7 +68,7 @@ function tripsResult (json) {
     : null
 }
 
-exports.tripsError = function tripsError (json) {
+exports.tripsError = function (json) {
   return error(tripsResult(json))
 }
 
